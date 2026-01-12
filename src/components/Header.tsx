@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, Search, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import {
@@ -12,6 +12,7 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
 
   const navItems = [
     { label: "ABOUT US", href: "/about", scrollTo: false },
@@ -110,7 +111,7 @@ const Header = () => {
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
                           {item.sections ? (
-                            <div className="grid grid-cols-3 gap-4 p-6 w-[800px]">
+                            <div className="grid grid-cols-3 gap-4 p-6 w-[800px] bg-white rounded-lg shadow-lg">
                               {item.sections.map((section) => (
                                 <div key={section.title}>
                                   <div className="flex items-center gap-2 mb-3">
@@ -122,7 +123,7 @@ const Header = () => {
                                       <li key={subItem}>
                                         <Link
                                           to="/services"
-                                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                                         >
                                           {subItem}
                                         </Link>
@@ -133,12 +134,12 @@ const Header = () => {
                               ))}
                             </div>
                           ) : (
-                            <ul className="grid w-48 gap-1 p-2">
+                            <ul className="w-48 p-3 bg-white rounded-lg shadow-lg">
                               {item.items?.map((subItem) => (
                                 <li key={subItem}>
                                   <Link
-                                    to="/services"
-                                    className="block px-3 py-2 text-sm hover:bg-muted rounded-md"
+                                    to={item.label === "RESOURCES" && subItem === "Blog" ? "/blog" : item.href}
+                                    className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors duration-200"
                                   >
                                     {subItem}
                                   </Link>
@@ -184,16 +185,77 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`block py-3 text-sm font-medium ${
-                  item.isHighlighted ? "text-primary" : "text-foreground"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
+              <div key={item.label}>
+                {item.hasDropdown ? (
+                  <>
+                    <button
+                      className={`w-full flex items-center justify-between py-3 text-sm font-medium ${
+                        item.isHighlighted ? "text-primary" : "text-foreground"
+                      }`}
+                      onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.label ? null : item.label)}
+                      aria-expanded={expandedMobileMenu === item.label}
+                    >
+                      {item.label}
+                      <ChevronDown 
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          expandedMobileMenu === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {expandedMobileMenu === item.label && (
+                      <div className="pl-4 pb-2 space-y-2 bg-muted/30 rounded-md mt-1 p-3">
+                        {item.sections ? (
+                          item.sections.map((section) => (
+                            <div key={section.title} className="mb-3">
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="text-lg">{section.icon}</span>
+                                <h4 className="font-semibold text-xs">{section.title}</h4>
+                              </div>
+                              <ul className="space-y-1.5">
+                                {section.items.map((subItem) => (
+                                  <li key={subItem}>
+                                    <Link
+                                      to="/services"
+                                      className="block text-xs text-muted-foreground hover:text-foreground py-1.5"
+                                      onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                      {subItem}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))
+                        ) : (
+                          <ul className="space-y-1.5">
+                            {item.items?.map((subItem) => (
+                              <li key={subItem}>
+                                <Link
+                                  to={item.href}
+                                  className="block text-xs text-muted-foreground hover:text-foreground py-1.5"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {subItem}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`block py-3 text-sm font-medium ${
+                      item.isHighlighted ? "text-primary" : "text-foreground"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
         )}
