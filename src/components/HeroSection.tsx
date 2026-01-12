@@ -1,75 +1,87 @@
 import { Button } from "./ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 const HeroSection = () => {
   const phdImages = [
     {
       url: "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=1600&auto=format&fit=crop&q=80",
-      alt: "PhD research and academic study"
+      alt: "PhD research and academic study",
     },
     {
       url: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600&auto=format&fit=crop&q=80",
-      alt: "Research and academic writing"
+      alt: "Research and academic writing",
     },
     {
       url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1600&auto=format&fit=crop&q=80",
-      alt: "PhD dissertation and thesis work"
-    }
+      alt: "PhD dissertation and thesis work",
+    },
   ];
 
   return (
     <>
-      <section className="relative h-[600px] overflow-hidden">
-        {/* Image Carousel as Background */}
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden min-h-[50vh] md:min-h-screen">
+        {/* Background Carousel */}
         <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 5000,
-            }),
-          ]}
-          className="absolute inset-0"
+          opts={{ align: "start", loop: true }}
+          plugins={[Autoplay({ delay: 5000 })]}
+          className="absolute inset-0 h-full"
         >
-          <CarouselContent className="h-full">
+          <CarouselContent className="h-full -ml-0">
             {phdImages.map((image, index) => (
-              <CarouselItem key={index} className="h-full">
-                <div className="relative w-full h-full">
+              <CarouselItem key={index} className="h-full pl-0">
+                <div className="relative w-full h-full min-h-[50vh] md:min-h-screen">
                   <img
                     src={image.url}
                     alt={image.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover absolute inset-0"
                   />
-                  {/* Dark overlay for text readability */}
-                  <div className="absolute inset-0 bg-black/60" />
+                  <div className="absolute inset-0 bg-black/50" />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 bg-white/10 hover:bg-white/20 border-white/30 text-white" />
-          <CarouselNext className="right-4 bg-white/10 hover:bg-white/20 border-white/30 text-white" />
+
+          <CarouselPrevious className=" hidden left-2 md:left-4 h-8 w-8 md:h-10 md:w-10 bg-white/20 border-white/40 text-white hover:bg-white/30" />
+          <CarouselNext className=" hidden right-2 md:right-4 h-8 w-8 md:h-10 md:w-10 bg-white/20 border-white/40 text-white hover:bg-white/30" />
         </Carousel>
 
-        {/* Text Content Overlay */}
-        <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
-          <div className="max-w-3xl">
-            <div className="inline-block bg-white/90 text-foreground font-semibold px-4 py-2 rounded-full mb-6">
+        {/* TEXT CONTENT */}
+        <div className="relative z-10 container mx-auto px-4 py-12 md:py-0 min-h-[50vh] md:min-h-screen flex items-center justify-center md:justify-start">
+          <div className="max-w-3xl text-center md:text-left">
+            <div className="inline-block bg-white/95 text-foreground font-semibold px-4 py-1.5 rounded-full mb-4 text-xs md:text-sm shadow-sm">
               PhD Dissertation Experts
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Your PhD Research Journey Starts Here !
+
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+              Your PhD Research Journey Starts Here!
             </h1>
-            <p className="text-lg text-white/90 mb-10 max-w-2xl leading-relaxed">
-              The research journey is messy, full of difficulties and surprises, hard work, beginnings and some form of closure. PhDAssistance Research Lab travels as part of this journey by supervising and mentoring PhD researchers across the globe.
+
+            <p className="hidden md:block text-sm md:text-lg  text-white/90 mb-6 max-w-2xl mx-auto md:mx-0">
+              The research journey is messy, full of difficulties and surprises, hard work,
+              beginnings and closure. PhDAssistance Research Lab mentors PhD researchers worldwide.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90">
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-6">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto text-sm md:text-base px-8 py-5 md:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
+              >
                 Request a Quote
               </Button>
-              <Button size="lg" variant="outline" className="text-base px-8 py-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-foreground">
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="hidden sm:inline-flex text-sm md:text-base px-6 py-5 md:px-8 md:py-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-foreground"
+              >
                 Hire a Researcher
               </Button>
             </div>
@@ -77,16 +89,16 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Bottom Section with Additional Content */}
-      <section className="py-12 bg-background border-t border-border">
+      {/* BOTTOM SECTION */}
+      <section className="py-8 md:py-10 bg-background border-t border-border">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Your PhD Research Journey <span className="text-primary">Begins Right Here!</span>
+          <h2 className="text-lg md:text-3xl font-bold mb-2 md:mb-3">
+            Your PhD Research Journey{" "}
+            <span className="text-primary">Begins Right Here!</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            The research journey is often chaotic, filled with challenges, unexpected twists, 
-            hard work, new beginnings, and eventual closure. 'PhD Assistance Research Lab' is 
-            a companion on this path, providing supervision and mentorship to PhD researchers worldwide.
+          <p className="text-xs md:text-lg text-muted-foreground">
+            We support PhD researchers globally with structured supervision,
+            mentorship, and academic excellence.
           </p>
         </div>
       </section>
