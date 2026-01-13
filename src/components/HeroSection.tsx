@@ -57,33 +57,30 @@ const HeroSection = () => {
         <div className="relative z-10 container mx-auto px-4 py-12 md:py-0 min-h-[50vh] md:min-h-screen flex items-center justify-center md:justify-start">
           <div className="max-w-3xl text-center md:text-left">
             <div className="inline-block bg-white/95 text-foreground font-semibold px-4 py-1.5 rounded-full mb-4 text-xs md:text-sm shadow-sm">
-              PhD Dissertation Experts
+              Research Mentoring Experts
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
-              Your PhD Research Journey Starts Here!
+              Your Research Journey Starts Here!
             </h1>
 
             <p className="hidden md:block text-sm md:text-lg  text-white/90 mb-6 max-w-2xl mx-auto md:mx-0">
               The research journey is messy, full of difficulties and surprises, hard work,
-              beginnings and closure. PhDAssistance Research Lab mentors PhD researchers worldwide.
+              beginnings and closure. Research Mentor Clinic worldwide.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-6">
               <Button
                 size="lg"
                 className="w-full sm:w-auto text-sm md:text-base px-8 py-5 md:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
+                asChild
               >
-                Request a Quote
+                <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer">
+                  BOOK A CALL
+                </a>
               </Button>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="hidden sm:inline-flex text-sm md:text-base px-6 py-5 md:px-8 md:py-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-foreground"
-              >
-                Hire a Researcher
-              </Button>
+           
             </div>
           </div>
         </div>
@@ -93,11 +90,11 @@ const HeroSection = () => {
       <section className="py-8 md:py-10 bg-background border-t border-border">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-lg md:text-3xl font-bold mb-2 md:mb-3">
-            Your PhD Research Journey{" "}
+            Your Research Journey{" "}
             <span className="text-primary">Begins Right Here!</span>
           </h2>
           <p className="text-xs md:text-lg text-muted-foreground">
-            We support PhD researchers globally with structured supervision,
+            We support researchers globally with structured supervision,
             mentorship, and academic excellence.
           </p>
         </div>

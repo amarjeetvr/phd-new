@@ -15,66 +15,66 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 15%;
 
-    --primary: 0 72% 45%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 100% 51%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 0 72% 45%;
+    --accent: 221 83% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 72% 45%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
 
     --radius: 0.5rem;
 
-    /* Custom PhD Assistance colors */
-    --phd-red: 0 72% 45%;
-    --phd-dark-red: 0 72% 35%;
-    --phd-gold: 45 100% 51%;
-    --phd-green: 145 63% 42%;
-    --phd-gray: 0 0% 96%;
-    --phd-dark: 0 0% 20%;
+    /* Custom PhD Assistance colors - Blue Theme */
+    --phd-blue: 221 83% 53%;
+    --phd-dark-blue: 221 83% 43%;
+    --phd-light-blue: 199 89% 48%;
+    --phd-sky-blue: 204 94% 94%;
+    --phd-navy: 222 47% 11%;
+    --phd-gray: 210 40% 96%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(45, 100%, 51%) 0%, hsl(25, 100%, 50%) 50%, hsl(0, 72%, 45%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(199, 89%, 48%) 0%, hsl(221, 83%, 53%) 50%, hsl(221, 83%, 43%) 100%);
   }
 
   .dark {
-    --background: 0 0% 10%;
+    --background: 222 47% 11%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 12%;
+    --card: 222 47% 14%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 12%;
+    --popover: 222 47% 14%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 72% 50%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 100% 51%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 11% 65%;
 
-    --accent: 0 72% 50%;
+    --accent: 221 83% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 0 72% 50%;
+    --border: 215 28% 25%;
+    --input: 215 28% 25%;
+    --ring: 221 83% 53%;
   }
 }
 
@@ -91,11 +91,11 @@
 
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(45, 100%, 51%) 0%, hsl(25, 100%, 50%) 50%, hsl(0, 72%, 45%) 100%);
+    background: linear-gradient(135deg, hsl(199, 89%, 48%) 0%, hsl(221, 83%, 53%) 50%, hsl(221, 83%, 43%) 100%);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(0, 72%, 45%) 0%, hsl(0, 72%, 35%) 100%);
+    background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(221, 83%, 43%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

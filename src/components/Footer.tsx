@@ -12,16 +12,16 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">PhD</span>
+                <span className="text-primary-foreground font-bold text-sm">RMC</span>
               </div>
               <div>
-                <span className="text-xl font-bold">PhD Assistance</span>
-                <p className="text-xs opacity-70">Research Lab</p>
+                <span className="text-xl font-bold">Research Mentor Clinic</span>
+                <p className="text-xs opacity-70">Research Support</p>
               </div>
             </div>
             <p className="text-sm opacity-80 mb-6 leading-relaxed">
-              PhD Assistance Research Lab travels as part of your research journey 
-              by supervising and mentoring PhD researchers across the globe.
+              Research Mentor Clinic travels as part of your research journey 
+              by supervising and mentoring researchers across the globe.
             </p>
             <div className="flex gap-3">
               <Button variant="ghost" size="icon" className="hover:bg-background/10">
@@ -45,9 +45,9 @@ const Footer = () => {
             <ul className="space-y-3 text-sm opacity-80">
               <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Industries</Link></li>
+              <li><a href="/#testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
               <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link to="/#contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -69,15 +69,15 @@ const Footer = () => {
             <ul className="space-y-4 text-sm opacity-80">
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 mt-0.5 text-primary" />
-                <span>info@phdassistance.com</span>
+                <span>hello@rmcdr.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 mt-0.5 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 81094 47202 / +91 88272 72142</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-0.5 text-primary" />
-                <span>Global Research Support</span>
+                <span>407, 4th Floor, Atulya IT Park, Khandwa Road, Indore, India</span>
               </li>
             </ul>
             <div className="mt-6">
@@ -100,7 +100,7 @@ const Footer = () => {
       <div className="border-t border-background/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-70">
-            <p>© 2024 PhD Assistance Research Lab. All rights reserved.</p>
+            <p>© 2024 Research Mentor Clinic. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

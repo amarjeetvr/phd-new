@@ -10,6 +10,7 @@ import GuaranteeSection from "@/components/GuaranteeSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CountriesSection from "@/components/CountriesSection";
 import BlogSection from "@/components/BlogSection";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -21,14 +22,16 @@ const Index = () => {
       <main>
         <HeroSection />
         <ServicesSection />
-        <EngagementSection />
-        <EngagementModels />
+        {/* <EngagementSection /> */}
+        {/* <EngagementModels /> */}
         <SolutionsSection />
+        <CTASection />
         <SubjectsSection />
         <HowWeWork />
         <GuaranteeSection />
         <TestimonialsSection />
-        <CountriesSection />
+        {/* <CountriesSection /> */}
+        <CTASection />
         <BlogSection />
       </main>
       <Footer />

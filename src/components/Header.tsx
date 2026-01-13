@@ -1,77 +1,30 @@
 import { useState } from "react";
-import { Menu, Search, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "./ui/navigation-menu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+
+  const servicesList = [
+    "Dissertation Writing",
+    "Thesis Writing",
+    "Research Paper Services",
+    "Review Papers / Systematic Review",
+    "Editing & Peer Reviewing",
+    "Data Analysis",
+    "Data Collection",
+    "Thematic Analysis",
+  ];
 
   const navItems = [
-    { label: "ABOUT US", href: "/about", scrollTo: false },
-    {
-      label: "SERVICES",
-      href: "#services",
-      hasDropdown: true,
-      sections: [
-        {
-          icon: "🧑‍🏫",
-          title: "1-on-1 Mentoring",
-          items: [
-            "Research Proposal",
-            "Literature Review",
-            "Concept Paper",
-            "Dissertation Special Mentorship",
-            "Defence ( Viva Voce ) Preparation",
-            "Research Topic Selection",
-            "Quantitative Data Analysis",
-            "Qualitative Data Analysis",
-            "AI Experiments",
-          ],
-        },
-        {
-          icon: "🎓",
-          title: "Teach Me Bootcamp",
-          items: [
-            "Concept Paper Bootcamp",
-            "Literature Overview Bootcamp",
-            "Research Proposal Bootcamp",
-          ],
-        },
-        {
-          icon: "⏱️",
-          title: "Time Saver Services",
-          items: [
-            "Editing and Proofreading",
-            "Formatting Services",
-            "Research Data Analysis Services",
-            "AI Coding",
-          ],
-        },
-      ],
-    },
-    {
-      label: "INDUSTRIES",
-      href: "#industries",
-      hasDropdown: true,
-      items: ["Computer Science", "Medicine", "Engineering", "Economics", "Education"],
-    },
-    {
-      label: "RESOURCES",
-      href: "#resources",
-      hasDropdown: true,
-      items: ["Blog", "Sample Works", "FAQs", "Testimonials"],
-    },
+    { label: "ABOUT US", href: "/about" },
+    { label: "SERVICES", href: "/services", hasDropdown: true },
+     { label: "TESTIMONIALS", href: "#testimonials" },
     { label: "BLOG", href: "/blog" },
-    { label: "CONTACT US", href: "#contact" },
-    { label: "HIRE A RESEARCH ASSISTANT", href: "#hire", isHighlighted: true },
+    { label: "CONTACT US", href: "/contact" },
+   
   ];
 
   return (
@@ -82,91 +35,77 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2 cursor-pointer">
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">PhD</span>
+                <span className="text-primary-foreground font-bold text-sm">RMC</span>
               </div>
-              <span className="text-[10px] text-muted-foreground">Research Lab</span>
+              <span className="text-[10px] text-muted-foreground">Research Support</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary">PhD Assistance</span>
+              <span className="text-xl font-bold text-primary">Research Mentor Clinic</span>
               <span className="text-xs text-muted-foreground">Your Trusted Mentor</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {navItems.map((item) => (
-                  <NavigationMenuItem key={item.label}>
-                    {item.hasDropdown ? (
-                      <>
-                        <NavigationMenuTrigger
-                          className={`text-xs font-medium ${
-                            item.isHighlighted
-                              ? "text-primary"
-                              : "text-foreground hover:text-primary"
-                          }`}
-                        >
-                          {item.label}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          {item.sections ? (
-                            <div className="grid grid-cols-3 gap-4 p-6 w-[800px] bg-white rounded-lg shadow-lg">
-                              {item.sections.map((section) => (
-                                <div key={section.title}>
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className="text-2xl">{section.icon}</span>
-                                    <h3 className="font-semibold text-sm">{section.title}</h3>
-                                  </div>
-                                  <ul className="space-y-2">
-                                    {section.items.map((subItem) => (
-                                      <li key={subItem}>
-                                        <Link
-                                          to="/services"
-                                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                                        >
-                                          {subItem}
-                                        </Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
-                            </div>
-                          ) : (
-                            <ul className="w-48 p-3 bg-white rounded-lg shadow-lg">
-                              {item.items?.map((subItem) => (
-                                <li key={subItem}>
-                                  <Link
-                                    to={item.label === "RESOURCES" && subItem === "Blog" ? "/blog" : item.href}
-                                    className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-md transition-colors duration-200"
-                                  >
-                                    {subItem}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <Link
-                        to={item.href}
-                        className={`px-3 py-2 text-xs font-medium ${
-                          item.isHighlighted
-                            ? "text-primary font-semibold"
-                            : "text-foreground hover:text-primary"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-            <Button variant="ghost" size="icon">
-              <Search className="h-5 w-5" />
+          <nav className="hidden lg:flex items-center gap-6">
+            {navItems.map((item) => (
+              item.hasDropdown ? (
+                <div
+                  key={item.label}
+                  className="relative group"
+                  onMouseEnter={() => setServicesDropdownOpen(true)}
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                >
+                  <Link
+                    to={item.href}
+                    className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  >
+                    {item.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </Link>
+                  
+                  {/* Dropdown Menu */}
+                  {servicesDropdownOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[600px] bg-background border border-border rounded-lg shadow-xl z-50 p-6">
+                      <h3 className="font-bold text-foreground mb-4 px-2">Our Services</h3>
+                      <div className="grid grid-cols-2 gap-2">
+                        {servicesList.map((service, idx) => (
+                          <Link
+                            key={idx}
+                            to="/services"
+                            className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 hover:text-primary rounded-md transition-colors"
+                          >
+                            {service}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : item.href.startsWith('#') ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
+            <Button asChild className="ml-2">
+              <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer">BOOK A CALL</a>
             </Button>
           </nav>
 
@@ -183,80 +122,38 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-border space-y-2">
             {navItems.map((item) => (
-              <div key={item.label}>
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      className={`w-full flex items-center justify-between py-3 text-sm font-medium ${
-                        item.isHighlighted ? "text-primary" : "text-foreground"
-                      }`}
-                      onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.label ? null : item.label)}
-                      aria-expanded={expandedMobileMenu === item.label}
-                    >
-                      {item.label}
-                      <ChevronDown 
-                        className={`h-4 w-4 transition-transform duration-200 ${
-                          expandedMobileMenu === item.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    {expandedMobileMenu === item.label && (
-                      <div className="pl-4 pb-2 space-y-2 bg-muted/30 rounded-md mt-1 p-3">
-                        {item.sections ? (
-                          item.sections.map((section) => (
-                            <div key={section.title} className="mb-3">
-                              <div className="flex items-center gap-2 mb-2">
-                                <span className="text-lg">{section.icon}</span>
-                                <h4 className="font-semibold text-xs">{section.title}</h4>
-                              </div>
-                              <ul className="space-y-1.5">
-                                {section.items.map((subItem) => (
-                                  <li key={subItem}>
-                                    <Link
-                                      to="/services"
-                                      className="block text-xs text-muted-foreground hover:text-foreground py-1.5"
-                                      onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                      {subItem}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))
-                        ) : (
-                          <ul className="space-y-1.5">
-                            {item.items?.map((subItem) => (
-                              <li key={subItem}>
-                                <Link
-                                  to={item.href}
-                                  className="block text-xs text-muted-foreground hover:text-foreground py-1.5"
-                                  onClick={() => setMobileMenuOpen(false)}
-                                >
-                                  {subItem}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    to={item.href}
-                    className={`block py-3 text-sm font-medium ${
-                      item.isHighlighted ? "text-primary" : "text-foreground"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="block py-3 text-sm font-medium text-foreground"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="block py-3 text-sm font-medium text-foreground"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
+            <Button asChild className="w-full mt-4">
+              <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                BOOK A CALL
+              </a>
+            </Button>
           </div>
         )}
       </div>

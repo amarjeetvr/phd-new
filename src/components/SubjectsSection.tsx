@@ -31,7 +31,7 @@ const SubjectsSection = () => {
             We have <span className="text-primary">200+ subject matter expertise</span>
           </h2>
           <p className="text-muted-foreground max-w-4xl mx-auto mb-8">
-            Almost every scholar and author wish to pursue a PhD, but choosing the correct path is critical. 
+            Almost every scholar and author wish to pursue research, but choosing the correct path is critical. 
             As external mentors, we enable doctoral students to overcome transitional and troublesome moments, 
             move through limited spaces and cross conceptual thresholds.
           </p>
@@ -60,11 +60,11 @@ const SubjectsSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
+        {/* <div className="text-center mt-8">
           <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
             More Subjects
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -32,7 +32,7 @@ const HowWeWork = () => {
             How do We <span className="text-primary">work?</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            We have standardized our PhD Mentoring Support working methodology 
+            We have standardized our Research Mentoring Support working methodology 
             that aligns with our research and customer objectives
           </p>
         </div>

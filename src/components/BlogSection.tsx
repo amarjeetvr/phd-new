@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const blogs = [
   {
-    title: "PhD Research Directions For 2022 In Nutritional Aspects Of Sarcopenia..",
+    title: " Research Directions For 2022 In Nutritional Aspects Of Sarcopenia..",
     excerpt: "About 25% of adults over 65 have type 2 diabetes mellitus (T2DM), a significant health burden for the senior population..",
     category: "Research Methodology",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&auto=format&fit=crop&q=80",

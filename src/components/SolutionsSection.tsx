@@ -19,7 +19,7 @@ const SolutionsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Our PhD Dissertation & Publication Support{" "}
+            Our Dissertation & Publication Support{" "}
             <span className="text-primary">Mentoring Solutions and Expertise</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">

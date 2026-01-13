@@ -1,199 +1,268 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { FileText, BarChart3, Users, Headphones, Database, BookOpen, Search, FileCheck, Award } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { FileText, BarChart3, Users, Headphones, Database, BookOpen, Search, FileCheck, Award, ClipboardList, LineChart, CheckSquare, List, BookCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
     icon: FileText,
-    title: "Writing & Rewriting",
-    description: "Talk to our experts to rewrite your thesis or manuscript at any stage of your research or from scratch.",
-    details: "Our expert writers help you craft compelling research papers, dissertations, and theses. Whether you need complete writing from scratch or rewriting existing content, we ensure academic excellence and adherence to university guidelines.",
+    title: "Dissertation Writing",
+    description: "Complete Ph.D. and Master's dissertation support from topic selection to final defense.",
+    details: "Writing a dissertation is arguably the most significant academic challenge a student faces. It is not merely a long essay but a rigorous demonstration of independent research capabilities, critical thinking, and contribution to knowledge. Our Dissertation Writing Service is designed to provide end-to-end support, ensuring that every chapter meets the highest academic standards.",
     features: [
-      "Complete thesis/dissertation writing",
-      "Chapter-wise writing support",
-      "Literature review writing",
-      "Research proposal development",
-      "Manuscript rewriting and restructuring"
-    ]
-  },
-  {
-    icon: BarChart3,
-    title: "Statistical Analysis",
-    description: "Consult us for statistical analyses, biostatistics or coding & algorithm development-related services.",
-    details: "Our statistical experts provide comprehensive data analysis services using advanced statistical tools and software. We help you interpret your research data and present meaningful results.",
-    features: [
-      "Quantitative data analysis",
-      "Qualitative data analysis",
-      "SPSS, R, Python, STATA support",
-      "Biostatistical analysis",
-      "Algorithm development and coding"
-    ]
-  },
-  {
-    icon: Users,
-    title: "Peer Reviewing & Editing",
-    description: "Our experts edit your thesis and manuscripts, ensuring that they are easy to understand and acceptable for publication.",
-    details: "Get professional peer review and editing services to enhance the quality and clarity of your research work. Our editors ensure your work meets international publication standards.",
-    features: [
-      "Comprehensive manuscript editing",
-      "Proofreading and formatting",
-      "Language and grammar correction",
-      "Peer review simulation",
-      "Publication readiness check"
-    ]
-  },
-  {
-    icon: Headphones,
-    title: "Consulting Services",
-    description: "Need consultation services on an hourly basis, use our hire a research assistant service. Easy and flexible.",
-    details: "Access expert consultation on-demand for your research queries. Our flexible hourly consulting service connects you with research assistants who can guide you through any research challenge.",
-    features: [
-      "One-on-one consultation sessions",
-      "Research methodology guidance",
-      "Topic selection assistance",
-      "Flexible hourly rates",
-      "Expert mentorship"
-    ]
-  },
-  {
-    icon: Database,
-    title: "Data Science Service",
-    description: "Leverage advanced data science techniques for your research. Get support in machine learning, AI, and big data analytics.",
-    details: "Our data science team helps you implement cutting-edge analytical techniques including machine learning, deep learning, and AI-powered solutions for your research.",
-    features: [
-      "Machine learning model development",
-      "AI implementation",
-      "Big data analytics",
-      "Data visualization",
-      "Predictive modeling"
+      "Topic Selection & Proposal",
+      "Literature Review",
+      "Methodology Design",
+      "Data Collection & Analysis",
+      "Discussion & Conclusion",
+      "Complete chapter-wise support"
     ]
   },
   {
     icon: BookOpen,
-    title: "Literature Review Support",
-    description: "Comprehensive literature review services including article extraction, synthesis, and systematic review preparation.",
-    details: "We help you conduct thorough literature reviews by identifying, extracting, and synthesizing relevant research articles for your study.",
+    title: "Thesis Writing",
+    description: "Master's & Undergraduate thesis support with expert guidance and quality assurance.",
+    details: "A thesis is the culmination of your degree, demanding a unique contribution to your field of study. While often similar to a dissertation, a thesis focuses heavily on demonstrating your mastery of the subject matter and your ability to conduct independent research.",
     features: [
-      "Article search and extraction",
-      "Annotated bibliography",
-      "Systematic literature review",
-      "Meta-analysis support",
-      "Literature synthesis"
+      "Research proposal development",
+      "Literature review writing",
+      "Methodology chapter support",
+      "Results and analysis",
+      "Formatting and proofreading",
+      "Defense preparation"
+    ]
+  },
+  {
+    icon: FileText,
+    title: "Research Paper Services",
+    description: "Expert assistance with research papers including data analysis and methodology.",
+    details: "Our expert writers help you craft compelling research papers that meet international publication standards. We provide comprehensive support from topic selection to final submission.",
+    features: [
+      "Topic selection assistance",
+      "Literature search and review",
+      "Research design and methodology",
+      "Statistical analysis",
+      "Manuscript writing and editing",
+      "Journal submission support"
     ]
   },
   {
     icon: Search,
-    title: "Research Methodology",
-    description: "Expert guidance on selecting and implementing the right research methodology for your study.",
-    details: "Get comprehensive support in designing your research methodology, selecting appropriate methods, and ensuring rigorous academic standards.",
+    title: "Review Papers / Systematic Review",
+    description: "Comprehensive systematic reviews synthesizing seminal and contemporary studies.",
+    details: "Systematic reviews require rigorous methodology to identify, evaluate, and synthesize all relevant research on a particular question. Our experts guide you through this complex process.",
     features: [
-      "Research design consultation",
-      "Sampling strategy development",
-      "Instrument development",
-      "Validity and reliability testing",
-      "Methodology chapter writing"
+      "Protocol development",
+      "Literature search strategy",
+      "Study selection and screening",
+      "Data extraction",
+      "Quality assessment",
+      "Meta-analysis support"
     ]
   },
   {
     icon: FileCheck,
-    title: "Journal Submission Support",
-    description: "Complete assistance with journal selection, manuscript preparation, and submission process management.",
-    details: "Navigate the complex journal submission process with expert guidance. We help you select appropriate journals and prepare your manuscript for publication.",
+    title: "Editing & Peer Reviewing",
+    description: "Professional editing and peer review services ensuring publication-ready manuscripts.",
+    details: "Our expert editors provide comprehensive editing and peer review services to enhance the quality and clarity of your research work. We ensure your manuscripts meet international publication standards and are ready for journal submission.",
     features: [
-      "Journal selection and recommendation",
-      "Manuscript formatting per journal guidelines",
-      "Cover letter preparation",
-      "Submission process management",
-      "Revision support"
+      "Comprehensive manuscript editing",
+      "Language and grammar correction",
+      "Proofreading and formatting",
+      "Peer review simulation",
+      "Publication readiness check",
+      "Citation and reference formatting"
     ]
   },
   {
-    icon: Award,
-    title: "Viva Voce Preparation",
-    description: "Comprehensive preparation and coaching for your PhD defense presentation and viva voce examination.",
-    details: "Build confidence and prepare thoroughly for your thesis defense with our expert coaching and mock viva sessions.",
+    icon: LineChart,
+    title: "Data Analysis",
+    description: "Advanced statistical analysis using SPSS, R, STATA, and other tools.",
+    details: "Our statistical experts provide comprehensive data analysis services using advanced statistical tools. From survey design to complex statistical modeling, we handle it all.",
     features: [
-      "Mock viva sessions",
-      "Presentation skills training",
-      "Question preparation",
-      "Defense strategy development",
-      "Communication coaching"
+      "Quantitative analysis (SPSS, R, STATA)",
+      "Qualitative analysis (NVivo, ATLAS.ti)",
+      "Regression analysis",
+      "ANOVA and t-tests",
+      "Structural Equation Modeling (SEM)",
+      "Results interpretation"
+    ]
+  },
+  {
+    icon: CheckSquare,
+    title: "Data Collection",
+    description: "Primary and secondary data collection using validated research methodologies.",
+    details: "Effective data collection is crucial for research success. We help you design and implement robust data collection strategies.",
+    features: [
+      "Survey design",
+      "Interview guide development",
+      "Focus group planning",
+      "Sampling strategy",
+      "Pilot testing",
+      "Data quality assurance"
+    ]
+  },
+
+  {
+    icon: List,
+    title: "Thematic Analysis",
+    description: "Qualitative data analysis using NVivo and ATLAS.ti for identifying themes.",
+    details: "We excel in thematic analysis, phenomenology, grounded theory, and ethnography. Our experts use NVivo and ATLAS.ti to code interview transcripts, identifying deep, latent themes.",
+    features: [
+      "Interview transcription",
+      "Code development",
+      "Theme identification",
+      "NVivo/ATLAS.ti support",
+      "Thematic mapping",
+      "Results writing"
     ]
   },
 ];
 
 const Services = () => {
+  const [selectedService, setSelectedService] = useState(0);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-background">
+        <section className="py-16 bg-gradient-to-br from-primary/10 to-background">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Our <span className="text-primary">Services</span>
+                Our  <span className="text-primary">Services</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Comprehensive PhD research support services tailored to meet your academic needs at every stage of your research journey.
+                Specialized academic support tailored to your research needs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Services Content - Sidebar Layout */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all hover:-translate-y-1">
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Left Sidebar - Service List */}
+              <div className="lg:w-1/4">
+                <div className="bg-muted/30 rounded-lg p-4 sticky top-24">
+                  <h3 className="font-bold text-foreground mb-4 px-4">Major Services</h3>
+                  <nav className="space-y-1">
+                    {services.map((service, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedService(index)}
+                        className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
+                          selectedService === index
+                            ? 'bg-primary text-primary-foreground font-semibold'
+                            : 'hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        <service.icon className="h-5 w-5 flex-shrink-0" />
+                        <span className="text-sm">{service.title}</span>
+                      </button>
+                    ))}
+                  </nav>
+                </div>
+              </div>
+
+              {/* Right Content - Service Details */}
+              <div className="lg:w-3/4">
+                <Card className="border-2">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                      <service.icon className="h-8 w-8 text-primary" />
+                    {/* Hero Banner */}
+                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg p-8 mb-8">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+                          {(() => {
+                            const Icon = services[selectedService].icon;
+                            return <Icon className="h-8 w-8 text-primary" />;
+                          })()}
+                        </div>
+                        <div>
+                          <h2 className="text-3xl font-bold text-foreground">
+                            {services[selectedService].title}
+                          </h2>
+                          <p className="text-muted-foreground mt-1">
+                            {services[selectedService].description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      {service.details}
-                    </p>
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-sm text-foreground mb-2">Key Features:</h4>
-                      <ul className="space-y-1">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
-                            <span>{feature}</span>
-                          </li>
+
+                    {/* Professional Description */}
+                    <div className="mb-8">
+                      <h3 className="text-xl font-bold text-primary mb-4">
+                        Professional {services[selectedService].title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed mb-4">
+                        {services[selectedService].details}
+                      </p>
+                    </div>
+
+                    {/* Key Features */}
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground mb-4">
+                        Structured Assistance
+                      </h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {services[selectedService].features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start gap-3 bg-muted/30 p-4 rounded-lg">
+                            <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-primary font-bold text-sm">✓</span>
+                            </div>
+                            <span className="text-sm text-foreground">{feature}</span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="mt-8 pt-8 border-t border-border">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Link to="/contact" className="flex-1">
+                          <button className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                            Get Started
+                          </button>
+                        </Link>
+                        <Link to="/contact" className="flex-1">
+                          <button className="w-full bg-transparent border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
+                            Contact Us
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Bottom CTA Section */}
         <section className="py-16 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Get Started?
             </h2>
             <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-              Contact us today to discuss your research needs and find the perfect service package for your PhD journey.
+              Contact us today to discuss your research needs and find the perfect service package for your research journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors">
-                Request a Quote
-              </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
-                Contact Us
-              </button>
+              <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer">
+                <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors">
+                  BOOK A CALL
+                </button>
+              </a>
+              <Link to="/contact">
+                <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                  Contact Us
+                </button>
+              </Link>
             </div>
           </div>
         </section>
