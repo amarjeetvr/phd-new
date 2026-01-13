@@ -21,7 +21,7 @@ const Header = () => {
   const navItems = [
     { label: "ABOUT US", href: "/about" },
     { label: "SERVICES", href: "/services", hasDropdown: true },
-     { label: "TESTIMONIALS", href: "#testimonials" },
+    { label: "TESTIMONIALS", href: "/testimonials" },
     { label: "BLOG", href: "/blog" },
     { label: "CONTACT US", href: "/contact" },
    
@@ -29,19 +29,18 @@ const Header = () => {
 
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 cursor-pointer">
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 cursor-pointer">
             <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">RMC</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xs sm:text-sm">RMC</span>
               </div>
-              <span className="text-[10px] text-muted-foreground">Research Support</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary">Research Mentor Clinic</span>
-              <span className="text-xs text-muted-foreground">Your Trusted Mentor</span>
+              <span className="text-base sm:text-xl font-bold text-primary leading-tight">Research Mentor Clinic</span>
+              <span className="text-xs hidden md:block text-muted-foreground">Your Trusted Mentor</span>
             </div>
           </Link>
 
@@ -113,22 +112,22 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden h-10 w-10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
           </Button>
         </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border space-y-2">
+          <div className="lg:hidden py-4 border-t border-border space-y-1">
             {navItems.map((item) => (
               item.href.startsWith('#') ? (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block py-3 text-sm font-medium text-foreground"
+                  className="block py-3 px-2 text-sm font-medium text-foreground hover:bg-muted rounded-md transition-colors"
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.querySelector(item.href);
@@ -142,18 +141,20 @@ const Header = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="block py-3 text-sm font-medium text-foreground"
+                  className="block py-3 px-2 text-sm font-medium text-foreground hover:bg-muted rounded-md transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               )
             ))}
-            <Button asChild className="w-full mt-4">
-              <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
-                BOOK A CALL
-              </a>
-            </Button>
+            <div className="pt-2">
+              <Button asChild className="w-full">
+                <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                  BOOK A CALL
+                </a>
+              </Button>
+            </div>
           </div>
         )}
       </div>

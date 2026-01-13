@@ -74,13 +74,13 @@ const Blog = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-background">
-          <div className="container mx-auto px-4">
+        <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-br from-primary/5 to-background">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
                 Blog & <span className="text-primary">Latest Articles</span>
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground px-4">
                 Stay updated with the latest research insights, methodologies, and industry news
               </p>
             </div>
@@ -88,9 +88,9 @@ const Blog = () => {
         </section>
 
         {/* Blog Posts Grid */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-10 sm:py-12 md:py-16 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {blogs.map((blog, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-all group cursor-pointer">
                   <div className="aspect-video overflow-hidden">
@@ -100,8 +100,8 @@ const Blog = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-center gap-3 sm:gap-4 text-xs text-muted-foreground mb-2 sm:mb-3">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-3 h-3" />
                         <span>{blog.date}</span>
@@ -111,19 +111,19 @@ const Blog = () => {
                         <span>{blog.readTime}</span>
                       </div>
                     </div>
-                    <h3 className="font-bold text-lg text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    <h3 className="font-bold text-base sm:text-lg text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed line-clamp-3">
                       {blog.excerpt}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs">
                         {blog.category}
                       </Badge>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1 sm:gap-2 text-xs text-muted-foreground">
                         <User className="w-3 h-3" />
-                        <span>{blog.author}</span>
+                        <span className="truncate max-w-[120px]">{blog.author}</span>
                       </div>
                     </div>
                   </CardContent>
@@ -134,23 +134,47 @@ const Blog = () => {
         </section>
 
         {/* Newsletter Section */}
-        <section className="py-16 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-background to-primary/5">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               Subscribe to Our Newsletter
             </h2>
-            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-muted-foreground max-w-2xl mx-auto px-4">
               Get the latest research insights and updates delivered directly to your inbox
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto">
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="px-4 py-3 rounded-lg flex-1 text-foreground"
+                className="px-4 py-2.5 sm:py-3 rounded-lg flex-1 border border-border text-sm sm:text-base"
               />
-              <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors">
+              <button className="bg-primary text-primary-foreground px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm sm:text-base whitespace-nowrap">
                 Subscribe
               </button>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-10 sm:py-12 md:py-16 bg-primary text-primary-foreground">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+              Need Research Assistance?
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto px-4">
+              Our expert team is ready to help you with your research journey. Book a consultation today!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-white text-primary px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors text-sm sm:text-base">
+                  BOOK A CALL
+                </button>
+              </a>
+              <a href="/contact" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-sm sm:text-base">
+                  Contact Us
+                </button>
+              </a>
             </div>
           </div>
         </section>

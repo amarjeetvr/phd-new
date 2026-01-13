@@ -129,42 +129,42 @@ const Testimonials = () => {
       <WhatsAppButton />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary via-primary/90 to-secondary py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-primary via-primary/90 to-secondary py-12 sm:py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               What Our Clients Say...
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-3 sm:mb-4 px-4">
               We've worked with 500+ student. Here's what some of them have to say:
             </p>
-            <div className="flex items-center justify-center gap-2 mt-8">
+            <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="h-5 w-5 sm:h-6 sm:w-6 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-2xl font-bold">4.7</span>
-              <span className="text-lg">Trustpilot Score</span>
+              <span className="text-xl sm:text-2xl font-bold">4.7</span>
+              <span className="text-sm sm:text-base md:text-lg">Trustpilot Score</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Video Testimonials Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-primary/5">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               Video <span className="text-primary">Testimonials</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
               Hear directly from our successful clients about their experience
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto mb-10 sm:mb-12 md:mb-16">
             {testimonials
               .filter((t) => t.hasVideo && t.achievement)
               .map((item, index) => (
@@ -180,15 +180,15 @@ const Testimonials = () => {
                     ></iframe>
                   </div>
 
-                  <CardContent className="p-6">
-                    <div className="flex gap-1 mb-3">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex gap-1 mb-2 sm:mb-3">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                        <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-primary text-primary" />
                       ))}
                     </div>
-                    <h3 className="font-semibold text-lg mb-1">{item.name}</h3>
-                    <p className="text-xs text-muted-foreground mb-3">{item.role}</p>
-                    <p className="text-sm text-muted-foreground line-clamp-4">
+                    <h3 className="font-semibold text-base sm:text-lg mb-1">{item.name}</h3>
+                    <p className="text-xs text-muted-foreground mb-2 sm:mb-3 line-clamp-1">{item.role}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 sm:line-clamp-4">
                       "{item.content}"
                     </p>
                   </CardContent>
@@ -199,37 +199,37 @@ const Testimonials = () => {
       </section>
 
       {/* All Testimonials Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               All <span className="text-primary">Testimonials</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
               Read what our clients have to say about their journey with us
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {testimonials.map((item, index) => (
               <Card key={index} className="hover:shadow-xl transition-all border-border hover:border-primary/50">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   {/* Stars */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3 sm:mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-primary text-primary" />
                     ))}
                   </div>
 
                   {/* Content */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 line-clamp-4">
                     "{item.content}"
                   </p>
 
                   {/* Author */}
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold text-foreground">{item.name}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{item.role}</p>
+                  <div className="border-t border-border pt-3 sm:pt-4">
+                    <p className="font-semibold text-sm sm:text-base text-foreground">{item.name}</p>
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{item.role}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -237,8 +237,8 @@ const Testimonials = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-12">
-            <Button size="lg" asChild>
+          <div className="text-center mt-8 sm:mt-10 md:mt-12">
+            <Button size="lg" asChild className="w-full sm:w-auto">
               <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01">
                 Book a Call
               </a>

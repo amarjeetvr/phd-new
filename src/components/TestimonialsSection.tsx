@@ -122,24 +122,26 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-b from-background to-primary/5">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-primary/5">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-primary font-semibold mb-2 text-sm uppercase tracking-wide">Testimonials</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <Link to="/testimonials">
+            <p className="text-primary font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide cursor-pointer hover:underline">Testimonials</p>
+          </Link>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Some Of Our <span className="text-primary">Testimonials</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Words from Our Clients
           </p>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl mx-auto px-4">
             We're committed to exceeding your expectations and empowering your doctoral success. Here's what our satisfied clients have to say
           </p>
         </div>
 
         {/* Video Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
           {testimonials
             .filter((t) => t.hasVideo && t.achievement)
             .map((item, index) => (
@@ -155,15 +157,15 @@ const TestimonialsSection = () => {
                   ></iframe>
                 </div>
 
-                <CardContent className="p-6">
-                  <div className="flex gap-1 mb-3">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex gap-1 mb-2 sm:mb-3">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  <h3 className="font-semibold text-lg mb-1">{item.name}</h3>
-                  <p className="text-xs text-muted-foreground mb-3">{item.role}</p>
-                  <p className="text-sm text-muted-foreground line-clamp-4">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">{item.name}</h3>
+                  <p className="text-xs text-muted-foreground mb-2 sm:mb-3">{item.role}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground line-clamp-4">
                     "{item.content}"
                   </p>
                 </CardContent>
@@ -172,8 +174,8 @@ const TestimonialsSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <Button size="lg" asChild>
+        <div className="text-center mt-8 sm:mt-10 md:mt-12">
+          <Button size="lg" asChild className="w-full sm:w-auto">
             <Link to="/testimonials">Learn More</Link>
           </Button>
         </div>

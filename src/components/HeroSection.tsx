@@ -27,7 +27,7 @@ const HeroSection = () => {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden min-h-[50vh] md:min-h-screen">
+      <section className="relative overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-screen">
         {/* Background Carousel */}
         <Carousel
           opts={{ align: "start", loop: true }}
@@ -37,7 +37,7 @@ const HeroSection = () => {
           <CarouselContent className="h-full -ml-0">
             {phdImages.map((image, index) => (
               <CarouselItem key={index} className="h-full pl-0">
-                <div className="relative w-full h-full min-h-[50vh] md:min-h-screen">
+                <div className="relative w-full h-full min-h-[60vh] sm:min-h-[70vh] md:min-h-screen">
                   <img
                     src={image.url}
                     alt={image.alt}
@@ -49,30 +49,31 @@ const HeroSection = () => {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious className=" hidden left-2 md:left-4 h-8 w-8 md:h-10 md:w-10 bg-white/20 border-white/40 text-white hover:bg-white/30" />
-          <CarouselNext className=" hidden right-2 md:right-4 h-8 w-8 md:h-10 md:w-10 bg-white/20 border-white/40 text-white hover:bg-white/30" />
+{/* <CarouselPrevious className="hidden md:flex left-2 md:left-4 h-8 w-8 md:h-10 md:w-10 bg-white/20 border-white/40 text-white hover:bg-white/30" />
+                    <CarouselNext className="hidden md:flex right-2 md:right-4 h-8 w-8 md:h-10 md:w-10 bg-white/20 border-white/40 text-white hover:bg-white/30" />
+     */}
         </Carousel>
 
         {/* TEXT CONTENT */}
-        <div className="relative z-10 container mx-auto px-4 py-12 md:py-0 min-h-[50vh] md:min-h-screen flex items-center justify-center md:justify-start">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-0 min-h-[60vh] sm:min-h-[70vh] md:min-h-screen flex items-center justify-center md:justify-start">
           <div className="max-w-3xl text-center md:text-left">
-            <div className="inline-block bg-white/95 text-foreground font-semibold px-4 py-1.5 rounded-full mb-4 text-xs md:text-sm shadow-sm">
+            <div className="inline-block bg-white/95 text-foreground font-semibold px-3 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-4 text-xs md:text-sm shadow-sm">
               Research Mentoring Experts
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
               Your Research Journey Starts Here!
             </h1>
 
-            <p className="hidden md:block text-sm md:text-lg  text-white/90 mb-6 max-w-2xl mx-auto md:mx-0">
+            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0 px-2 sm:px-0">
               The research journey is messy, full of difficulties and surprises, hard work,
               beginnings and closure. Research Mentor Clinic worldwide.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-6">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-4 sm:mt-6">
               <Button
                 size="lg"
-                className="w-full sm:w-auto text-sm md:text-base px-8 py-5 md:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
+                className="w-full sm:w-auto text-sm md:text-base px-6 py-5 sm:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
                 asChild
               >
                 <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer">

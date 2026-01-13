@@ -60,23 +60,23 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className=" bg-gradient-to-b from-background to-muted" id="services">
-      <div className="container mx-auto px-4">
+    <section className="py-1 sm:py-16 md:py-2 bg-gradient-to-b from-background to-muted" id="services">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-5">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Our <span className="text-primary">Services</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
             Specialized academic support tailored to your research needs
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <Card key={index} className="bg-background hover:shadow-xl transition-all group overflow-hidden border-border hover:border-primary/50">
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 sm:h-48 overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title}
