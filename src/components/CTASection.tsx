@@ -27,7 +27,7 @@ const CTASection = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 border-white hover:scale-105 transition-transform"
+              className="text-lg px-8 py-6 bg-white text-primary  border-white hover:scale-105 transition-transform"
               asChild
             >
               <a href="/contact">
