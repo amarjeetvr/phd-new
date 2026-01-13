@@ -65,15 +65,27 @@ const HeroSection = () => {
               Your Research Journey Starts Here!
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0 px-2 sm:px-0">
+            <p className="text-sm  hidden md:block sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0 px-2 sm:px-0">
               The research journey is messy, full of difficulties and surprises. Stop struggling on your own   let's do it together. 
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-4 sm:mt-6">
+        <div className="flex flex-col gap-3 w-full mt-4 sm:mt-6 sm:flex-row sm:justify-start sm:w-auto">
+  
   {/* Book a Call */}
   <Button
     size="lg"
-    className="w-full sm:w-auto text-sm md:text-base px-6 py-5 sm:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
+    className="
+      w-full
+      h-12
+      text-sm
+      font-semibold
+      bg-primary
+      hover:bg-primary/90
+      shadow-md
+      sm:w-auto
+      sm:h-14
+      sm:px-8
+    "
     asChild
   >
     <a
@@ -89,7 +101,20 @@ const HeroSection = () => {
   <Button
     size="lg"
     variant="outline"
-    className="w-full sm:w-auto text-sm md:text-base px-6 py-5 sm:px-8 md:py-6 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-semibold shadow-lg"
+    className="
+      w-full
+      h-12
+      text-sm
+      font-semibold
+      border-green-500
+      text-green-600
+      hover:bg-green-500
+      hover:text-white
+      shadow-md
+      sm:w-auto
+      sm:h-14
+      sm:px-8
+    "
     asChild
   >
     <a
@@ -97,10 +122,12 @@ const HeroSection = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-       WHATSAPP
+      WHATSAPP
     </a>
   </Button>
+
 </div>
+
 
           </div>
         </div>
