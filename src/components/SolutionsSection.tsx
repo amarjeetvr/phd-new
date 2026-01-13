@@ -1,6 +1,8 @@
 import { FileText, BookOpen, BarChart3, Code, Database, Edit, Search, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
+
 
 const solutions = [
   { icon: FileText, title: "Dissertation Services", description: "Re-writing the complete or part of your dissertation" },
@@ -37,9 +39,11 @@ const SolutionsSection = () => {
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{solution.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{solution.description}</p>
-                <Button variant="link" className="text-primary p-0 h-auto text-sm">
-                  Find Out More
-                </Button>
+               <Link to="/services">
+  <Button variant="link" className="text-primary p-0 h-auto text-sm">
+    Find Out More
+  </Button>
+</Link>
               </CardContent>
             </Card>
           ))}
