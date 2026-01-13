@@ -20,7 +20,7 @@ const subjects = [
   { icon: Users2, name: "Sociology" },
 ];
 
-const workFor = ["Research Scholars", "Supervisors", "Publishers", "Universities"];
+const workFor = ["Research Scholars", "Supervisors", "Publishers","Corporates", "Universities"];
 
 const SubjectsSection = () => {
   return (

@@ -34,14 +34,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5 sm:gap-2 cursor-pointer">
             <div className="flex flex-col items-center">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xs sm:text-sm">RMC</span>
-              </div>
+              <img src="/rmc logo.png" alt="RMC Logo" className=" h-8 sm:h-10 md:h-12 w-auto object-contain" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-base sm:text-xl font-bold text-primary leading-tight">Research Mentor Clinic</span>
-              <span className="text-xs hidden md:block text-muted-foreground">Your Trusted Mentor</span>
-            </div>
+            
           </Link>
 
           {/* Desktop Navigation */}

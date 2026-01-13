@@ -240,7 +240,7 @@ const Services = () => {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
+                    {/* <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <Link to="/contact" className="flex-1">
                           <button className="w-full bg-primary text-primary-foreground px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm sm:text-base">
@@ -253,7 +253,7 @@ const Services = () => {
                           </button>
                         </Link>
                       </div>
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </div>

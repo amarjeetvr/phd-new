@@ -13,6 +13,7 @@ import BlogSection from "@/components/BlogSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WorkflowSection from "@/components/WorkflowSection";
 
 const Index = () => {
   return (
@@ -24,9 +25,10 @@ const Index = () => {
         <ServicesSection />
         {/* <EngagementSection /> */}
         {/* <EngagementModels /> */}
-        <SolutionsSection />
+        {/* <SolutionsSection /> */}
         <CTASection />
         <SubjectsSection />
+        {/* <WorkflowSection /> */}
         <HowWeWork />
         <GuaranteeSection />
         <TestimonialsSection />

@@ -66,28 +66,47 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0 px-2 sm:px-0">
-              The research journey is messy, full of difficulties and surprises, hard work,
-              beginnings and closure. Research Mentor Clinic worldwide.
+              The research journey is messy, full of difficulties and surprises. Stop struggling on your own   let's do it together. 
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-4 sm:mt-6">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto text-sm md:text-base px-6 py-5 sm:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
-                asChild
-              >
-                <a href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01" target="_blank" rel="noopener noreferrer">
-                  BOOK A CALL
-                </a>
-              </Button>
+  {/* Book a Call */}
+  <Button
+    size="lg"
+    className="w-full sm:w-auto text-sm md:text-base px-6 py-5 sm:px-8 md:py-6 bg-primary hover:bg-primary/90 font-semibold shadow-lg"
+    asChild
+  >
+    <a
+      href="https://calendly.com/researchmentorclinic1/doctorate-call?month=2026-01"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      BOOK A CALL
+    </a>
+  </Button>
 
-           
-            </div>
+  {/* WhatsApp */}
+  <Button
+    size="lg"
+    variant="outline"
+    className="w-full sm:w-auto text-sm md:text-base px-6 py-5 sm:px-8 md:py-6 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-semibold shadow-lg"
+    asChild
+  >
+    <a
+      href="https://api.whatsapp.com/send/?phone=918827272142&text=Hello%20I%20need%20research%20guidance"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+       WHATSAPP
+    </a>
+  </Button>
+</div>
+
           </div>
         </div>
       </section>
 
-      {/* BOTTOM SECTION */}
+      {/* BOTTOM SECTION
       <section className="py-8 md:py-10 bg-background border-t border-border">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-lg md:text-3xl font-bold mb-2 md:mb-3">
@@ -99,7 +118,7 @@ const HeroSection = () => {
             mentorship, and academic excellence.
           </p>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

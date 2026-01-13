@@ -5,20 +5,19 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-black text-background">
       <div className="container mx-auto px-4 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4 sm:mb-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-primary-foreground font-bold text-xs sm:text-sm">RMC</span>
-              </div>
-              <div>
-                <span className="text-base sm:text-xl font-bold leading-tight block">Research Mentor Clinic</span>
-                <p className="text-xs opacity-70">Research Support</p>
-              </div>
-            </div>
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+  <img
+    src="/logo-footer.png"
+    alt="RMC Logo"
+    className="h-10 sm:h-15 md:h-20 w-auto object-contain"
+  />
+</div>
+
             <p className="text-sm opacity-80 mb-6 leading-relaxed">
               Research Mentor Clinic travels as part of your research journey 
               by supervising and mentoring researchers across the globe.
@@ -29,11 +28,11 @@ const Footer = () => {
                   <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-background/10 h-9 w-9 sm:h-10 sm:w-10" asChild>
+              {/* <Button variant="ghost" size="icon" className="hover:bg-background/10 h-9 w-9 sm:h-10 sm:w-10" asChild>
                 <a href="https://www.instagram.com/researchmentorclinic/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
-              </Button>
+              </Button> */}
               <Button variant="ghost" size="icon" className="hover:bg-background/10 h-9 w-9 sm:h-10 sm:w-10" asChild>
                 <a href="https://www.linkedin.com/company/research-mentor-clinic/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -89,7 +88,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 text-primary flex-shrink-0" />
-                <span className="break-words">+91 81094 47202 / +91 88272 72142</span>
+                <span className="break-words"> +91 88272 72142</span>
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 text-primary flex-shrink-0" />

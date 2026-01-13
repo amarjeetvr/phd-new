@@ -60,7 +60,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-1 sm:py-16 md:py-2 bg-gradient-to-b from-background to-muted" id="services">
+    <section className="py-2 sm:py-16 md:py-2 bg-gradient-to-b from-background to-muted" id="services">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">
@@ -68,7 +68,8 @@ const ServicesSection = () => {
             Our <span className="text-primary">Services</span>
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-            Specialized academic support tailored to your research needs
+            Specialized academic support tailored to your research needs .  We support researchers globally with structured supervision,
+            mentorship, and academic excellence.
           </p>
         </div>
 

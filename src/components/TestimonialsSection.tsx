@@ -127,14 +127,14 @@ const TestimonialsSection = () => {
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <Link to="/testimonials">
-            <p className="text-primary font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide cursor-pointer hover:underline">Testimonials</p>
+            {/* <p className="text-primary font-semibold mb-2 text-xs sm:text-sm uppercase tracking-wide cursor-pointer hover:underline">Testimonials</p> */}
           </Link>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Some Of Our <span className="text-primary">Testimonials</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
+          {/* <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Words from Our Clients
-          </p>
+          </p> */}
           <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl mx-auto px-4">
             We're committed to exceeding your expectations and empowering your doctoral success. Here's what our satisfied clients have to say
           </p>
